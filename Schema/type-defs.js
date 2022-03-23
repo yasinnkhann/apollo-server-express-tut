@@ -16,7 +16,7 @@ const typeDefs = gql`
   type Mutation {
     createUser(name: String!, age: Int!, married: Boolean!): User!
     deleteUser(name: String!): User!
-    updateUser(name: String!, age: Int, married: Boolean): User!
+    updateMarriage(name: String!, updatedMarriageStatus: Boolean!): User!
   }
 `;
 

@@ -21,22 +21,27 @@ const resolvers = {
       users.push(newUser);
       return newUser;
     },
+
     deleteUser: (parent, args) => {
-      const userIndex = users.findIndex(user => user.name === args.name);
-      if (userIndex === -1) {
+      const userIdx = users.findIndex(user => user.name === args.name);
+      if (userIdx === -1) {
         throw new Error('User not found');
       }
-      const deletedUser = users[userIndex];
-      users.splice(userIndex, 1);
+      const deletedUser = users[userIdx];
+      users.splice(userIdx, 1);
       return deletedUser;
     },
-    updateUser: (parent, args) => {
-      const userIndex = users.findIndex(user => user.name === args.name);
-      if (userIndex === -1) {
+
+    updateMarriage: (parent, args) => {
+      const userIdx = users.findIndex(user => user.name === args.name);
+      if (userIdx === -1) {
         throw new Error('User not found');
       }
-      const updatedUser = args;
-      users[userIndex] = updatedUser;
+      const updatedUser = {
+        ...users[userIdx],
+        married: args.updatedMarriageStatus,
+      };
+      users[userIdx] = updatedUser;
       return updatedUser;
     },
   },

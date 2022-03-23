@@ -1,7 +1,7 @@
 const { ApolloServer } = require('apollo-server-express');
 const { ApolloServerPluginDrainHttpServer } = require('apollo-server-core');
-const { typeDefs } = require('./schema/TypeDefs');
-const { resolvers } = require('./schema/Resolvers');
+const { typeDefs } = require('./schema/type-defs');
+const { resolvers } = require('./schema/resolvers');
 const express = require('express');
 const http = require('http');
 
